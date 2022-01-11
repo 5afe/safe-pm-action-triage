@@ -1,5 +1,7 @@
 name: "Example"
 on:
+  issues:
+    types: [opened]
 
 jobs:
   monitor:
