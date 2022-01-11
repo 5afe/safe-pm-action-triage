@@ -1,7 +1,7 @@
 name: "Example"
 on:
   issues:
-    types: [opened]
+    types: [opened,edited]
 
 jobs:
   monitor:
@@ -12,5 +12,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          safe-address: ${{ secrets.TARGET_SAFE }}
-          snapshot-space: ${{ secrets.SNAPSHOT_SPACE }}
+          target: '${{ github.event.issues.issue.number }} someprojectstring'
+          action: 
