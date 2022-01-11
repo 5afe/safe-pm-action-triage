@@ -12,5 +12,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          target: '${{ github.event.issues.issue.number }} someprojectstring'
-          action: 
+          action: 'assign_issue_to_project'
+          params: '${{ github.event.issues.issue.number }} someprojectstring'
