@@ -1,0 +1,17 @@
+name: "Safe PM Triage"
+description: "GitHub Action to triage issues for Safe product management"
+author: "rmeissner"
+branding:
+  icon: "award"
+  color: blue
+inputs:
+  action:
+    description: "Action to perform"
+  params:
+    description: "Parameters for the action"
+  verbose:
+    description: "Use to perform verbose logging"
+    default: "false"
+runs:
+  using: "node16"
+  main: "lib/index.js"
