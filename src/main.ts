@@ -3,7 +3,6 @@ import { runAction } from './actions'
 
 async function run(): Promise<void> {
   try {
-    const verbose: boolean = core.getInput('verbose') === 'true'
     const action: string = core.getInput('action')
     const params: string = core.getInput('params')
     await runAction(action, params)

@@ -2,8 +2,11 @@ import { context } from "@actions/github"
 import { toolkit } from "./toolkit"
 
 const assignIssueToProject = async (issueNo: number, project: number) => {
+    console.log("Start")
     const issueResponse = await toolkit.issues.get({ ...context.repo, issue_number: issueNo })
+    console.log(issueResponse.data)
     const projectResponse = await toolkit.projects.get({ ...context.repo, project_id: project })
+    console.log(projectResponse.data)
     const query = `
     mutation($issueId:ID!, $projectId:ID!) {
         addProjectNextItem(input: {projectId:$projectId contentId:$issueId})
@@ -11,6 +14,7 @@ const assignIssueToProject = async (issueNo: number, project: number) => {
     }`;
     const variables = { issueId: issueResponse.data.node_id, projectId: projectResponse.data.node_id };
     await toolkit.graphql({ query, ...variables })
+    console.log("Done")
 }
 
 export const runAction = async (action: string | undefined, params: string | undefined) => {
