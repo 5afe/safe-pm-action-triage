@@ -3,6 +3,9 @@ import { toolkit } from "./toolkit"
 
 const assignIssueToProject = async (issueNo: number, project: number) => {
     console.log("Start")
+    const { headers } = await toolkit.request('HEAD /')
+    const scopes = headers?.['x-oauth-scopes']?.split(', ')
+    console.log("scopes", scopes)
     const issueResponse = await toolkit.issues.get({ ...context.repo, issue_number: issueNo })
     console.log(issueResponse.data)
     const projectResponse = await toolkit.projects.get({ ...context.repo, project_id: project })
