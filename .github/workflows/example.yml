@@ -10,7 +10,7 @@ jobs:
       - name: "Triage"
         uses: rmeissner/safe-pm-action-triage@main
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         with:
           action: 'assign_issue_to_project'
           params: '${{ github.event.issue.number }} 1'
