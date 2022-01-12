@@ -13,7 +13,7 @@ const assignIssueToProject = async (issueNo: number, project: number) => {
     await toolkit.graphql({ query, ...variables })
 }
 
-export const buildAction = async (action: string | undefined, params: string | undefined) => {
+export const runAction = async (action: string | undefined, params: string | undefined) => {
     switch (action) {
         case "assign_issue_to_project": {
             if (!params) throw Error(`Missing parameters`)
